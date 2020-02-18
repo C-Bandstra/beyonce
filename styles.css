@@ -1,9 +1,11 @@
+/* basic setup */
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
 }
+
 html,
 body {
   margin: 0px;
@@ -20,10 +22,12 @@ body {
 }
 
 main {
+  display: flex;
   width: 100%;
   height: 90%;
 }
 
+/*  */
 .nav-container {
   background-color: #262527;
   width: 20%;
@@ -65,4 +69,74 @@ main {
   align-items:center;
   padding-bottom: 15%;
   margin-top: 38%;
+}
+
+/* cards */
+.card-container {
+  width: 80%;
+  height: 100%;
+  background-color: #d3d3d3;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  background-image: url("assets/bey-background-option.jpg");
+}
+
+.card {
+  border: 3px solid #262527;
+  width: 130px;
+  height: 170px;
+  margin: 20px 50px;
+  background-color: #fff;
+  cursor: grabbing;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 400%;
+  font-weight: 700;
+}
+
+.card-1 {
+  transform: translateY(100px);
+}
+
+.card-2 {
+  transform: rotate(-15deg);
+}
+
+.card-3 {
+  transform: rotate(-4deg);
+}
+
+.card-4 {
+  transform: rotate(10deg);
+}
+
+.card-5 {
+  transform: translateY(150px) rotate(-10deg);
+}
+
+.card-6 {
+  transform: translateX(-20px) rotate(10deg);
+}
+
+.card-7 {
+  transform: translateX(-20px) rotate(-10deg) ;
+}
+
+.card-8 {
+  transform: translateX(50px) ;
+}
+
+.card-9 {
+  transform: translate(120px, -20px) rotate(8deg);
+}
+
+.card-10 {
+  transform: translate(150px, -40px) rotate(-20deg);
 }
