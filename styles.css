@@ -55,3 +55,14 @@ main {
   width: 23%;
   margin: 3.5%;
 }
+
+.top-scores {
+  display: flex;
+  height: 27%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items:center;
+  padding-bottom: 15%;
+  margin-top: 38%;
+}
