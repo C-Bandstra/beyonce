@@ -25,7 +25,7 @@ class Deck {
     }
   }
   populateSelected() {
-
+    for()
   }
 }
 
