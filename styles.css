@@ -32,7 +32,7 @@ main {
   background-color: #262527;
   width: 20%;
   height: 100%;
-  color: white;
+  color: #fff;
   text-align: center;
 }
 
@@ -139,4 +139,45 @@ main {
 
 .card-10 {
   transform: translate(150px, -40px) rotate(-20deg);
+}
+
+.win-page {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #d3d3d3;
+}
+
+.congrats {
+  font-size: 600%;
+  font-weight: 700;
+}
+
+.match-quantity {
+  font-size: 290%;
+}
+
+.total-time {
+  font-size: 320%;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 45%;
+}
+.play-again-button, 
+.new-game-button {
+  background-color: #262527;
+  color: #fff;
+  font-size: 200%;
+  padding: 15px 60px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  border: 0px;
+}
+
+.hide {
+  display: none;
 }
