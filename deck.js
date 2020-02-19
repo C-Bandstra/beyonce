@@ -28,6 +28,7 @@ class Deck {
     for(var i = 0; i < this.cards.length; i++) {
       if(this.cards[i].matchInfo === event.target.id) {
         this.selectedCards.push(this.cards[i])
+        this.cards[i].selected = true;
       }
     }
     console.log(this.selectedCards)
