@@ -9,11 +9,13 @@ function invokeDeck() {
 }
 
 function displayCards() {
-  debugger
+  var cardCounter = 0;
   for (var i = 0; i < deck.cards.length; i++) {
+    cardCounter++;
     cardContainer.insertAdjacentHTML('beforeend', `
-    <div class="card">
+    <div id="${cardCounter}" class="card card-${cardCounter}">
       <p>B</p>
     </div>`)
   }
+  console.log(cardCounter);
 }
