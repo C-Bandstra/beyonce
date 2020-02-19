@@ -18,4 +18,15 @@ class Deck {
   moveToMatched(card) {
     //if 2 cards are matched, move that pair to the matchedCards array
   }
+  populateDeck() {
+
+  }
+  populateSelected() {
+
+  }
 }
+
+
+
+//All card object instances should be held in the Deck class???????
+//What properties in the class should be dynamic, and which ones should be default?
