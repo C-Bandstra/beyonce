@@ -19,7 +19,10 @@ class Deck {
     //if 2 cards are matched, move that pair to the matchedCards array
   }
   populateDeck() {
-
+    for (var i = 0; i < 10; i++) {
+      var card = new Card();
+      this.cards.push(card);
+    }
   }
   populateSelected() {
 

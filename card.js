@@ -1,5 +1,5 @@
 class Card {
-  constructor() {
+  constructor(matchInfo) {
     this.matchInfo = matchInfo;
     this.matched = false;
     this.selected = false;
