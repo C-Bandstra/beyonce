@@ -6,6 +6,14 @@
   font-family: 'Lato', sans-serif;
 }
 
+div *{
+  pointer-events: none;
+}
+
+div.card {
+  cursor: pointer;
+}
+
 html,
 body {
   margin: 0px;
