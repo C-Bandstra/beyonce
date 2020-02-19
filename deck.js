@@ -24,12 +24,12 @@ class Deck {
       this.cards.push(card);
     }
   }
-  populateSelected() {
-    for()
+  populateSelected(event) {
+    for(var i = 0; i < this.cards.length; i++) {
+      if(this.cards[i].matchInfo === event.target.id) {
+        this.selectedCards.push(this.cards[i])
+      }
+    }
+    console.log(this.selectedCards)
   }
 }
-
-
-
-//All card object instances should be held in the Deck class???????
-//What properties in the class should be dynamic, and which ones should be default?
