@@ -19,18 +19,27 @@ class Deck {
     //if 2 cards are matched, move that pair to the matchedCards array
   }
   populateDeck() {
-    for (var i = 0; i < 10; i++) {
-      var card = new Card();
+    var firstCardsId = 0
+    for (var i = 1; i < 6; i++) {
+      firstCardsId++
+      var card = new Card(`card-${i}`, firstCardsId);
       this.cards.push(card);
     }
+    var lastCardsId = 5
+    for (var i = 1; i < 6; i++) {
+      lastCardsId++
+      var card = new Card(`card-${i}`, lastCardsId);
+      this.cards.push(card);
+    }
+    console.log(this.cards);
   }
+
   populateSelected(event) {
     for(var i = 0; i < this.cards.length; i++) {
-      if(this.cards[i].matchInfo === event.target.id) {
+      if(this.cards[i].id == event.target.id) {
         this.selectedCards.push(this.cards[i])
         this.cards[i].selected = true;
       }
     }
-    console.log(this.selectedCards)
   }
 }
