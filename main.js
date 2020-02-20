@@ -33,12 +33,12 @@ function displayCards(event) {
 }
 
 function checkSelected(event) {
-  debugger
   for(var i = 0; i < deck.cards.length; i++) {
-    var imgId = deck.cards[i].id
-    var isSelected = deck.cards[i].selected
-    var clickedId = event.target.id
-    if(isSelected && clickedId == (imgId || (imgId + 5))) {
+    var cardId = deck.cards[i].id;
+    var imgId = cardId > 5 ? cardId - 5 : cardId;
+    var isSelected = deck.cards[i].selected;
+    var clickedId = event.target.id;
+    if(isSelected && clickedId == cardId) {
       event.target.classList.toggle(`img-${imgId}`);
       event.target.firstElementChild.classList.toggle('hide')
       break
