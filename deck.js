@@ -20,12 +20,12 @@ class Deck {
   }
   populateDeck() {
     var firstCardsId = 0
+    var lastCardsId = 5
     for (var i = 1; i < 6; i++) {
       firstCardsId++
       var card = new Card(`card-${i}`, firstCardsId);
       this.cards.push(card);
     }
-    var lastCardsId = 5
     for (var i = 1; i < 6; i++) {
       lastCardsId++
       var card = new Card(`card-${i}`, lastCardsId);
@@ -36,10 +36,25 @@ class Deck {
 
   populateSelected(event) {
     for(var i = 0; i < this.cards.length; i++) {
-      if(this.cards[i].id == event.target.id) {
+      if(this.cards[i].id == event.target.id && this.selectedCards.length < 2) {
         this.selectedCards.push(this.cards[i])
         this.cards[i].selected = true;
       }
     }
+    console.log(this.selectedCards)
+  }
+
+  validateSelected() {
+    for (var i = 0; i < this.selectedCards.length; i++) {
+      if(this.selectedCards[i].selected) {
+        this.selectedCards[i].selected = false;
+        console.log(this.selectedCards[i].selected)
+        this.selectedCards.splice(this.selectedCards[i], 1)
+        console.log(this.selectedCards)
+      }
+    }
   }
 }
+//Only 2 cards can be selected at a time
+//If a card is clicked and it is in the selected array, it will be removed
+//
