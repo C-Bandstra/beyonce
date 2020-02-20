@@ -149,6 +149,36 @@ main {
   transform: translate(150px, -40px) rotate(-20deg);
 }
 
+.img-1, 
+.img-6 {
+  background-image: url(assets/bey1.jpg);
+  background-size: cover;
+}
+
+.img-2, 
+.img-7 {
+  background-image: url(assets/bey2.jpg);
+  background-size: cover;
+}
+
+.img-3, 
+.img-8 {
+  background-image: url(assets/bey3.jpeg);
+  background-size: cover;
+}
+
+.img-4, 
+.img-9 {
+  background-image: url(assets/bey4.jpg);
+  background-size: cover;
+}
+
+.img-5, 
+.img-10 {
+  background-image: url(assets/bey5.jpg);
+  background-size: cover;
+}
+
 .win-page-container {
   flex-direction: column;
   justify-content: top;
