@@ -43,16 +43,20 @@ class Deck {
           console.log(this.selectedCards);
           break
         } else {
-          for (var i = 0; i < this.selectedCards.length; i++) {
-            if(this.selectedCards[i].selected && (this.selectedCards[i].id == event.target.id)) {
-              var index = this.selectedCards.indexOf(this.selectedCards[i])
-              this.selectedCards.splice(index, 1)
-              this.cards[i].selected = false;
-              console.log(this.selectedCards);
-          }
+          this.removeSelected()
         }
       }
     }
   }
-}
+
+  removeSelected() {
+    for (var i = 0; i < this.selectedCards.length; i++) {
+      if(this.selectedCards[i].selected && (this.selectedCards[i].id == event.target.id)) {
+        var index = this.selectedCards.indexOf(this.selectedCards[i])
+        this.selectedCards[i].selected = false;
+        this.selectedCards.splice(index, 1)
+        console.log(this.selectedCards);
+      }
+    }
+  }
 }
