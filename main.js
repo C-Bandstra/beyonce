@@ -39,9 +39,12 @@ function checkSelected(event) {
     var isSelected = deck.cards[i].selected;
     var clickedId = event.target.id;
     if(isSelected && clickedId == cardId) {
-      event.target.classList.toggle(`img-${imgId}`);
-      event.target.firstElementChild.classList.toggle('hide')
+      event.target.classList.add(`img-${imgId}`);
+      event.target.firstElementChild.classList.add('hide')
       break
+    } else {
+      event.target.classList.remove(`img-${imgId}`);
+      event.target.firstElementChild.classList.remove('hide')
     }
   }
 }
