@@ -1,12 +1,11 @@
-/* basic setup */
 * {
-  margin: 0px;
-  padding: 0px;
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
+  font-family: Lato, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-div *{
+div * {
   pointer-events: none;
 }
 
@@ -14,34 +13,32 @@ div.card {
   cursor: pointer;
 }
 
-html,
-body {
-  margin: 0px;
-  width: 100%;
+html, body {
   height: 100%;
+  margin: 0;
+  width: 100%;
 }
 
 .header-container {
-  width: 100%;
-  height: 10%;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  height: 10%;
+  justify-content: center;
+  width: 100%;
 }
 
 main {
   display: flex;
-  width: 100%;
   height: 90%;
+  width: 100%;
 }
 
-/*  */
 .nav-container {
   background-color: #262527;
-  width: 20%;
-  height: 100%;
   color: #fff;
+  height: 100%;
   text-align: center;
+  width: 20%;
 }
 
 .nav-title-container {
@@ -57,56 +54,53 @@ main {
 .current-matches-container {
   display: flex;
   flex-wrap: wrap;
+  height: 30%;
   justify-content: center;
   margin-top: 5%;
-  height: 30%;
   width: 100%;
 }
+
 .current-match {
   background-color: #A9A9A9;
-  width: 23%;
   margin: 3.5%;
+  width: 23%;
 }
 
 .top-scores {
-  display: flex;
-  height: 27%;
-  width: 100%;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items:center;
-  padding-bottom: 15%;
-  margin-top: 38%;
-}
-
-/* cards */
-.card-container {
-  width: 80%;
-  height: 100%;
-  background-color: #d3d3d3;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 20px;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(199, 199, 199, 0.9)), url("assets/bey-background-option.jpg");
-}
-
-.card {
-  border: 3px solid #262527;
-  width: 130px;
-  height: 170px;
-  margin: 20px 50px;
-  background-color: #fff;
-  cursor: grabbing;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-}
-
-.card {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 27%;
+  justify-content: space-around;
+  margin-top: 38%;
+  padding-bottom: 15%;
+  width: 100%;
+}
+
+.card-container {
+  background-color: #d3d3d3;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(199, 199, 199, 0.9)), url(assets/bey-background-option.jpg);
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: center;
+  padding: 20px;
+  width: 80%;
+}
+
+.card {
+  align-items: center;
+  background-color: #fff;
+  border: 3px solid #262527;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  cursor: grabbing;
+  display: flex;
   font-size: 400%;
   font-weight: 700;
+  height: 170px;
+  justify-content: center;
+  margin: 20px 50px;
+  width: 130px;
 }
 
 .card-1 {
@@ -134,11 +128,11 @@ main {
 }
 
 .card-7 {
-  transform: translateX(-20px) rotate(-10deg) ;
+  transform: translateX(-20px) rotate(-10deg);
 }
 
 .card-8 {
-  transform: translateX(50px) ;
+  transform: translateX(50px);
 }
 
 .card-9 {
@@ -154,35 +148,34 @@ main {
   background-size: cover;
 }
 
-.img-2{
+.img-2 {
   background-image: url(assets/bey2.jpg);
   background-size: cover;
 }
 
-.img-3{
+.img-3 {
   background-image: url(assets/bey3.jpeg);
   background-size: cover;
 }
 
-.img-4{
+.img-4 {
   background-image: url(assets/bey4.jpg);
   background-size: cover;
 }
 
-.img-5{
+.img-5 {
   background-image: url(assets/bey5.jpg);
   background-size: cover;
 }
 
 .win-page-container {
-  flex-direction: column;
-  justify-content: top;
   align-items: center;
-  height: 90%;
   background-color: #d3d3d3;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(199, 199, 199, 0.9)), url("assets/bey1.jpg");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(199, 199, 199, 0.9)), url(assets/bey1.jpg);
   background-size: cover;
-
+  flex-direction: column;
+  height: 90%;
+  justify-content: top;
 }
 
 .congrats {
@@ -204,23 +197,22 @@ main {
 .buttons-container {
   display: flex;
   justify-content: space-between;
-  width: 45%;
   margin-top: 4%;
-}
-.play-again-button,
-.new-game-button {
-  font-weight: 300;
-  background-color: #262527;
-  color: #fff;
-  font-size: 200%;
-  padding: 15px 60px;
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-  border: 0px;
+  width: 45%;
 }
 
-.play-again-button:hover,
-.new-game-button:hover {
+.play-again-button, .new-game-button {
+  background-color: #262527;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 200%;
+  font-weight: 300;
+  padding: 15px 60px;
+}
+
+.play-again-button:hover, .new-game-button:hover {
   background-color: #616161;
   transition: background-color 1s;
 }
