@@ -5,12 +5,12 @@ var deck = new Deck();
 window.onload = invokeDeck();
 
 // Event Listeners
-cardContainer.addEventListener('click', clickHandler)
+cardContainer.addEventListener('click', clickHandler);
 
 // Functions
 
 function clickHandler(event) {
-  if(event.target.closest('.card')) {
+  if (event.target.closest('.card')) {
     deck.populateSelected(event);
     checkSelected(event);
   }
@@ -28,23 +28,23 @@ function displayCards(event) {
     cardContainer.insertAdjacentHTML('beforeend', `
     <div id="${cardCounter}" class="card card-${cardCounter}">
       <p class="">B</p>
-    </div>`)
+    </div>`);
   }
 }
 
 function checkSelected(event) {
-  for(var i = 0; i < deck.cards.length; i++) {
+  for (var i = 0; i < deck.cards.length; i++) {
     var cardId = deck.cards[i].id;
     var imgId = cardId > 5 ? cardId - 5 : cardId;
     var isSelected = deck.cards[i].selected;
     var clickedId = event.target.id;
-    if(isSelected && clickedId == cardId) {
+    if (isSelected && clickedId == cardId) {
       event.target.classList.add(`img-${imgId}`);
-      event.target.firstElementChild.classList.add('hide')
-      break
+      event.target.firstElementChild.classList.add('hide');
+      break;
     } else {
       event.target.classList.remove(`img-${imgId}`);
-      event.target.firstElementChild.classList.remove('hide')
+      event.target.firstElementChild.classList.remove('hide');
     }
   }
 }
