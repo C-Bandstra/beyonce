@@ -11,8 +11,11 @@ cardContainer.addEventListener('click', clickHandler);
 
 function clickHandler(event) {
   if (event.target.closest('.card')) {
-    deck.populateSelected(event);
+    deck.checkSelected(event);
     checkSelected(event);
+  }
+  if(deck.selectedCards.length === 2) {
+    deck.moveToMatched();
   }
 }
 
