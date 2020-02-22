@@ -1,7 +1,9 @@
 // Variables
-var allCards = document
 var cardContainer = document.querySelector('.card-container');
+var gamePage = document.querySelector('.game-page');
+var winPage = document.querySelector('.win-page-container');
 var matchAmount = document.querySelector('.amount-container');
+var winPageTime = document.querySelector('.total-time');
 var deck = new Deck();
 var timer = new Timer();
 
@@ -11,7 +13,6 @@ window.onload = invokeDeck();
 cardContainer.addEventListener('click', clickHandler);
 
 // Functions
-
 function clickHandler(event) {
   if (event.target.closest('.card')) {
     deck.checkSelected(event);
@@ -82,4 +83,10 @@ function increaseMatchAmount() {
   var amount = Number(matchAmount.innerText)
   amount++;
   matchAmount.innerText = `${amount}`;
+}
+
+function gameOver(minutes, seconds) {
+  gamePage.classList.add('hide');
+  winPage.classList.remove('hide');
+  winPageTime.innerText = `${minutes} minutes ${seconds} seconds`;
 }

@@ -10,10 +10,11 @@ class Timer {
 
   }
   translateMin(totalSeconds) {
-    debugger
+    // debugger
     this.minutes = Math.floor(totalSeconds / 60);
     this.seconds = totalSeconds % 60;
     this.topTimes.push(totalSeconds);
+    gameOver(this.minutes, this.seconds);
   }
   start(timer, matchAmount) {
     var time = setInterval(function() {
