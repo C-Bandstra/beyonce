@@ -54,16 +54,15 @@ function displayImg(event) {
 }
 
 function removeMatchedDom() {
-  debugger
+  var falseMatch = cardContainer.getElementsByClassName('img');
+  for(var i = 0; i < 2; i++) {
+    falseMatch[0].remove();
+  }
   deck.matchedCards.forEach((match, i) => {
     match.forEach(card => {
-      var falseMatch = cardContainer.getElementsByClassName('img');
-      for(var i = 0; i < 2; i++) {
-        falseMatch[0].remove();
-      }
       card.selected = false;
       deck.selectedCards = [];
       console.log(falseMatch);
     })
-  }) 
-} 
+  })
+}
