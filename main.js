@@ -1,4 +1,5 @@
 // Variables
+var allCards = document
 var cardContainer = document.querySelector('.card-container');
 var deck = new Deck();
 
@@ -42,7 +43,7 @@ function displayImg(event) {
     var isSelected = deck.cards[i].selected;
     var clickedId = event.target.id;
     if (isSelected && clickedId == cardId) {
-      event.target.classList.add(`img-${imgId}`);
+      event.target.classList.add(`img-${imgId}`, 'img');
       event.target.firstElementChild.classList.add('hide');
       break;
     } else {
@@ -54,20 +55,15 @@ function displayImg(event) {
 
 function removeMatchedDom() {
   debugger
-  //check if cards in selected cards Match are True
   deck.matchedCards.forEach((match, i) => {
     match.forEach(card => {
-      if(event.target.classList.contains('matched')) {
-        event.target.remove()
+      var falseMatch = cardContainer.getElementsByClassName('img');
+      for(var i = 0; i < 2; i++) {
+        falseMatch[0].remove();
       }
+      card.selected = false;
+      deck.selectedCards = [];
+      console.log(falseMatch);
     })
   }) 
-  
-  //check if matchInfo matches cardClass 
-  //then remove both cards from selected array
-  //also removes Divs from card-container 
-} 
-
-function addMatchedClass() {
-  event.target.classList.add('matched');
 } 
