@@ -10,17 +10,17 @@ class Deck {
   }
 
   moveToMatched(card) {
-    var selectedArr = this.selectedCards
-      if(selectedArr[0].matchInfo === selectedArr[1].matchInfo) {
-        selectedArr.forEach(card => {
-          card.matched = true
-        })
-        this.matchedCards.push(selectedArr);
-        removeMatchedDom();
-      } else {
-        this.removeClassFromFalseMatch()
-      }
+    var selectedArr = this.selectedCards;
+    if (selectedArr[0].matchInfo === selectedArr[1].matchInfo) {
+      selectedArr.forEach(card => {
+        card.matched = true
+      })
+      this.matchedCards.push(selectedArr);
+      removeMatchedDom();
+    } else {
+      this.removeClassFromFalseMatch();
     }
+  }
 
   populateDeck() {
     var firstCardsId = 0;
@@ -41,7 +41,7 @@ class Deck {
     this.cards.forEach((card, i) => {
       var cardIndex = this.cards[i];
       if (cardIndex.id == event.target.id && selectedArr.length <= 2) {
-        this.populateSelected(selectedArr, cardIndex)
+        this.populateSelected(selectedArr, cardIndex);
       }
     })
   }
@@ -61,7 +61,6 @@ class Deck {
       if (selectedArr[i].selected && (selectedArr[i].id == event.target.id)) {
         var index = selectedArr.indexOf(selectedArr[i]);
         selectedArr[i].selected = false;
-        this.removeClassFromFalseMatch
         selectedArr.splice(index, 1);
         console.log(selectedArr);
       }
@@ -70,8 +69,8 @@ class Deck {
 
   removeClassFromFalseMatch() {
     var falseMatch = cardContainer.getElementsByClassName('img');
-    for(var i = 0; i < 2; i++) {
-      falseMatch[0].classList.remove('img')
+    for (var i = 0; i < 2; i++) {
+      falseMatch[0].classList.remove('img');
     }
   }
 }
