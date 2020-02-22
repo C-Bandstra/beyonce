@@ -15,8 +15,11 @@ function clickHandler(event) {
   if (event.target.closest('.card')) {
     deck.checkSelected(event);
     displayImg(event);
+    var timer = new Timer();
+    console.log(timer)
+    timer.start();
   }
-  if(deck.selectedCards.length === 2) {
+  if (deck.selectedCards.length === 2) {
     deck.moveToMatched();
   }
 }
@@ -57,7 +60,7 @@ function displayImg(event) {
 function removeMatchedDom() {
   increaseMatchAmount();
   var falseMatch = cardContainer.getElementsByClassName('img');
-  for(var i = 0; i < 2; i++) {
+  for (var i = 0; i < 2; i++) {
     falseMatch[0].remove();
   }
   deck.matchedCards.forEach((match, i) => {
@@ -71,6 +74,6 @@ function removeMatchedDom() {
 
 function increaseMatchAmount() {
   var amount = Number(matchAmount.innerText)
-  amount++
-  matchAmount.innerText = `${amount}`
+  amount++;
+  matchAmount.innerText = `${amount}`;
 }
