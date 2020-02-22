@@ -10,7 +10,6 @@ class Deck {
   }
 
   moveToMatched(card) {
-    debugger
     var selectedArr = this.selectedCards
       if(selectedArr[0].matchInfo === selectedArr[1].matchInfo) {
         selectedArr.forEach(card => {
@@ -68,7 +67,7 @@ class Deck {
       }
     }
   }
-  
+
   removeClassFromFalseMatch() {
     var falseMatch = cardContainer.getElementsByClassName('img');
     for(var i = 0; i < 2; i++) {

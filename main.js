@@ -1,6 +1,7 @@
 // Variables
 var allCards = document
 var cardContainer = document.querySelector('.card-container');
+var matchAmount = document.querySelector('.amount-container')
 var deck = new Deck();
 
 window.onload = invokeDeck();
@@ -54,6 +55,7 @@ function displayImg(event) {
 }
 
 function removeMatchedDom() {
+  increaseMatchAmount();
   var falseMatch = cardContainer.getElementsByClassName('img');
   for(var i = 0; i < 2; i++) {
     falseMatch[0].remove();
@@ -65,4 +67,10 @@ function removeMatchedDom() {
       console.log(falseMatch);
     })
   })
+}
+
+function increaseMatchAmount() {
+  var amount = Number(matchAmount.innerText)
+  amount++
+  matchAmount.innerText = `${amount}`
 }
