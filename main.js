@@ -24,7 +24,6 @@ function clickHandler(event) {
 }
 
 function invokeTimer() {
-  debugger
   if (timer.totalSeconds === 0) {
     console.log(timer);
     timer.start(timer, matchAmount);
