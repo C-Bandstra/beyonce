@@ -13,12 +13,14 @@ class Timer {
     this.minutes = Math.floor(this.totalSeconds / 60);
     this.seconds = this.totalSeconds % 60;
   }
-  start() {
-    debugger;
-    var seconds = this.totalSeconds;
-    setInterval(function() {
-      seconds++;
-      console.log(seconds);
+  start(timer, matchAmount) {
+    var time = setInterval(function() {
+      timer.totalSeconds++;
+      if (matchAmount.innerText == 5) {
+        clearInterval(time);
+      }
+      console.log(timer.totalSeconds);
     }, 1000);
   }
+
 }

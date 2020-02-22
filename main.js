@@ -1,8 +1,9 @@
 // Variables
 var allCards = document
 var cardContainer = document.querySelector('.card-container');
-var matchAmount = document.querySelector('.amount-container')
+var matchAmount = document.querySelector('.amount-container');
 var deck = new Deck();
+var timer = new Timer();
 
 window.onload = invokeDeck();
 
@@ -15,12 +16,18 @@ function clickHandler(event) {
   if (event.target.closest('.card')) {
     deck.checkSelected(event);
     displayImg(event);
-    var timer = new Timer();
-    console.log(timer)
-    timer.start();
+    invokeTimer();
   }
   if (deck.selectedCards.length === 2) {
     deck.moveToMatched();
+  }
+}
+
+function invokeTimer() {
+  debugger
+  if (timer.totalSeconds === 0) {
+    console.log(timer);
+    timer.start(timer, matchAmount);
   }
 }
 
