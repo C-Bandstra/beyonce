@@ -16,6 +16,9 @@ class Deck {
           card.matched = true
         })
         this.matchedCards.push(selectedArr);
+        addMatchedClass();
+        removeMatchedDom();
+
       }
     }
 
