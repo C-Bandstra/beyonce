@@ -9,16 +9,21 @@ class Timer {
     this.seconds = 0;
 
   }
-  translateMin() {
-    this.minutes = Math.floor(this.totalSeconds / 60);
-    this.seconds = this.totalSeconds % 60;
+  translateMin(totalSeconds) {
+    debugger
+    this.minutes = Math.floor(totalSeconds / 60);
+    this.seconds = totalSeconds % 60;
+    this.topTimes.push(totalSeconds);
   }
-  start() {
-    debugger;
-    var seconds = this.totalSeconds;
-    setInterval(function() {
-      seconds++;
-      console.log(seconds);
+  start(timer, matchAmount) {
+    var time = setInterval(function() {
+      timer.totalSeconds++;
+      if (matchAmount.innerText == 5) {
+        clearInterval(time);
+        timer.translateMin(timer.totalSeconds);
+      }
+      console.log(timer.totalSeconds);
     }, 1000);
   }
+
 }
