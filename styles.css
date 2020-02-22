@@ -103,6 +103,13 @@ main {
   width: 130px;
 }
 
+.card:hover {
+  background-color: #262527;
+  color: #fff;
+  border: 3px solid #fff;
+  transition: background-color .5s, color .5s, border .5s;
+}
+
 .card-1 {
   transform: translateY(100px);
 }
