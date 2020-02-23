@@ -78,7 +78,7 @@ function removeMatchedDom() {
 }
 
 function increaseMatchAmount() {
-  var amount = Number(matchAmount.innerText)
+  var amount = Number(matchAmount.innerText);
   amount++;
   matchAmount.innerText = `${amount}`;
   if (matchAmount.innerText == 5) {

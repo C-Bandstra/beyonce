@@ -12,7 +12,8 @@ class Timer {
   translateMin() {
     var totalSeconds = (this.stopTime - this.startTime) / 1000;
     this.minutes = Math.floor(totalSeconds / 60);
-    this.seconds = Math.round(totalSeconds);
+    this.seconds = Math.round(totalSeconds - (this.minutes * 60));
+
     var totalTime = `${this.minutes} minutes ${this.seconds} seconds`;
     this.topTimes.push(totalTime);
     gameOver(this.minutes, this.seconds);
