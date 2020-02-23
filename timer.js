@@ -1,30 +1,38 @@
 class Timer {
-  constructor(startTime, stopTime) {
-    debugger;
-    this.startTime = startTime;
-    this.stopTime = stopTime;
-    this.topTimes = [];
+  constructor() {
+    this.startTime = null;
+    this.stopTime = null;
+    this.topTimes = JSON.parse(localStorage.getItem('allScores')) || [];
     this.totalSeconds = 0;
     this.minutes = 0;
     this.seconds = 0;
+    this.started = false;
 
   }
-  translateMin(totalSeconds) {
-    // debugger
+  translateMin() {
+    var totalSeconds = (this.stopTime - this.startTime) / 1000;
     this.minutes = Math.floor(totalSeconds / 60);
-    this.seconds = totalSeconds % 60;
-    this.topTimes.push(totalSeconds);
+    this.seconds = Math.round(totalSeconds);
+    var totalTime = `${this.minutes} minutes ${this.seconds} seconds`;
+    this.topTimes.push(totalTime);
     gameOver(this.minutes, this.seconds);
-  }
-  start(timer, matchAmount) {
-    var time = setInterval(function() {
-      timer.totalSeconds++;
-      if (matchAmount.innerText == 5) {
-        clearInterval(time);
-        timer.translateMin(timer.totalSeconds);
-      }
-      console.log(timer.totalSeconds);
-    }, 1000);
+    this.saveToLocalStorage(this.topTimes);
   }
 
+  start() {
+    this.startTime = Date.now();
+    this.started = true;
+  }
+
+  stop() {
+    this.stopTime = Date.now();
+    this.translateMin();
+    this.started = false;
+  }
+
+
+  saveToLocalStorage() {
+    var stringedArray = JSON.stringify(this.topTimes);
+    localStorage.setItem('allScores', stringedArray);
+  }
 }
