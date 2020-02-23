@@ -33,7 +33,6 @@ class Deck {
       this.cards.push(card1);
       this.cards.push(card2);
     }
-    console.log(this.cards);
   }
 
   checkSelected(event) {
@@ -50,7 +49,6 @@ class Deck {
     if (!cardIndex.selected && selectedArr.length < 2) {
       selectedArr.push(cardIndex);
       cardIndex.selected = true;
-      console.log(selectedArr);
     } else {
       this.removeSelected(selectedArr);
     }
@@ -62,7 +60,6 @@ class Deck {
         var index = selectedArr.indexOf(selectedArr[i]);
         selectedArr[i].selected = false;
         selectedArr.splice(index, 1);
-        console.log(selectedArr);
       }
     }
   }
