@@ -10,6 +10,4 @@ class Card {
     //write functionality to compare similar id's
     //toggle this.matched once match is made
   }
-
-
 }

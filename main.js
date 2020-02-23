@@ -25,9 +25,8 @@ function clickHandler(event) {
 }
 
 function invokeTimer() {
-  if (timer.totalSeconds === 0) {
-    console.log(timer);
-    timer.start(timer, matchAmount);
+  if (!timer.started) {
+    timer.start();
   }
 }
 
@@ -74,7 +73,6 @@ function removeMatchedDom() {
     match.forEach(card => {
       card.selected = false;
       deck.selectedCards = [];
-      console.log(falseMatch);
     })
   })
 }
@@ -83,6 +81,9 @@ function increaseMatchAmount() {
   var amount = Number(matchAmount.innerText)
   amount++;
   matchAmount.innerText = `${amount}`;
+  if (matchAmount.innerText == 5) {
+    timer.stop();
+  }
 }
 
 function gameOver(minutes, seconds) {
