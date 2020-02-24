@@ -55,13 +55,13 @@ class Deck {
   }
 
   removeSelected(selectedArr) {
-    for (var i = 0; i < selectedArr.length; i++) {
-      if (selectedArr[i].selected && (selectedArr[i].id == event.target.id)) {
-        var index = selectedArr.indexOf(selectedArr[i]);
-        selectedArr[i].selected = false;
+    selectedArr.forEach(card => {
+      if (card.selected && (card.id == event.target.id)) {
+        var index = selectedArr.indexOf(card);
+        card.selected = false;
         selectedArr.splice(index, 1);
       }
-    }
+    })
   }
 
   removeClassFromFalseMatch() {

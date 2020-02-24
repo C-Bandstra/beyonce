@@ -7,12 +7,12 @@ class Timer {
     this.minutes = 0;
     this.seconds = 0;
     this.started = false;
-
   }
+
   translateMin() {
     var totalSeconds = (this.stopTime - this.startTime) / 1000;
     this.minutes = Math.floor(totalSeconds / 60);
-    this.seconds = Math.round(totalSeconds);
+    this.seconds = Math.round(totalSeconds % 60);
     var totalTime = `${this.minutes} minutes ${this.seconds} seconds`;
     this.topTimes.push(totalTime);
     gameOver(this.minutes, this.seconds);
@@ -29,7 +29,6 @@ class Timer {
     this.translateMin();
     this.started = false;
   }
-
 
   saveToLocalStorage() {
     var stringedArray = JSON.stringify(this.topTimes);
