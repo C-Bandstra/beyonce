@@ -10,11 +10,13 @@ class Timer {
   }
 
   translateMin() {
-    var totalSeconds = (this.stopTime - this.startTime) / 1000;
+    var totalSeconds = Math.round((this.stopTime - this.startTime) / 1000);
     this.minutes = Math.floor(totalSeconds / 60);
     this.seconds = Math.round(totalSeconds % 60);
-    var totalTime = `${this.minutes} minutes ${this.seconds} seconds`;
-    this.topTimes.push(totalTime);
+    this.topTimes.push(totalSeconds);
+    console.log(this.topTimes);
+    this.topTimes.sort(function (a, b) {return a - b;});
+    console.log(this.topTimes);
     gameOver(this.minutes, this.seconds);
     this.saveToLocalStorage(this.topTimes);
   }
