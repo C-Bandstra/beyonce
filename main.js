@@ -4,6 +4,9 @@ var gamePage = document.querySelector('.game-page');
 var winPage = document.querySelector('.win-page-container');
 var matchAmount = document.querySelector('.amount-container');
 var winPageTime = document.querySelector('.total-time');
+var firstScore = document.querySelector('.first-score');
+var secondScore = document.querySelector('.second-score');
+var thirdScore = document.querySelector('.third-score');
 var deck = new Deck();
 var timer = new Timer();
 
@@ -33,6 +36,7 @@ function invokeTimer() {
 function invokeDeck() {
   deck.populateDeck();
   displayCards(event);
+  displayTopTimes();
 }
 
 function displayCards(event) {
@@ -89,4 +93,19 @@ function gameOver(minutes, seconds) {
   gamePage.classList.add('hide');
   winPage.classList.remove('hide');
   winPageTime.innerText = `${minutes} minutes ${seconds} seconds`;
+}
+
+function displayTopTimes() {
+  var firstTime = timer.topTimes[0];
+  var sec1 = Math.round(firstTime % 60);
+  var min1 = Math.floor(firstTime / 60);
+  var secondTime = timer.topTimes[1];
+  var sec2 = Math.round(secondTime % 60);
+  var min2 = Math.floor(secondTime / 60);
+  var thirdTime = timer.topTimes[2];
+  var sec3 = Math.round(thirdTime % 60);
+  var min3 = Math.floor(thirdTime / 60);
+  firstScore.innerText = `${min1 || '0'} min ${sec1 || '0'} sec`;
+  secondScore.innerText = `${min2 || '0'} min ${sec2 || '0'} sec`;
+  thirdScore.innerText = `${min3 || '0'} min ${sec3 || '0'} sec`;
 }
