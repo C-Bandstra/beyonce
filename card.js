@@ -8,6 +8,7 @@ class Card {
   }
 
   match() {
+    this.matched = true;
     //write functionality to compare similar id's
     //toggle this.matched once match is made
   }
