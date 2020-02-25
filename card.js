@@ -4,6 +4,7 @@ class Card {
     this.matched = false;
     this.selected = false;
     this.id = id;
+    this.img = null;
   }
 
   match() {

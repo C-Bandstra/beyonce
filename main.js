@@ -23,6 +23,7 @@ function clickHandler(event) {
     invokeTimer();
   }
   if (deck.selectedCards.length === 2) {
+    debugger
     deck.moveToMatched();
   }
 }
@@ -96,6 +97,7 @@ function gameOver(minutes, seconds) {
 }
 
 function displayTopTimes() {
+  debugger
   var firstTime = timer.topTimes[0];
   var sec1 = Math.round(firstTime % 60);
   var min1 = Math.floor(firstTime / 60);
@@ -108,4 +110,16 @@ function displayTopTimes() {
   firstScore.innerText = `${min1 || '0'} min ${sec1 || '0'} sec`;
   secondScore.innerText = `${min2 || '0'} min ${sec2 || '0'} sec`;
   thirdScore.innerText = `${min3 || '0'} min ${sec3 || '0'} sec`;
+}
+
+
+function showCurrentMatchesImg(card) {
+  var imgCtr = 1;
+  var matchBoxes = gamePage.getElementsByClassName('current-match');
+  for (var i = 0; i < matchBoxes.length; i++) {
+    if (card.matchInfo === matchBoxes[i].dataset.id) {
+      matchBoxes[i].classList.add(`img-${imgCtr}`)
+    }
+    imgCtr++;
+  }
 }

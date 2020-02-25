@@ -5,15 +5,17 @@ class Deck {
     this.selectedCards = [];
   }
 
+
   shuffle() {
     //when the user starts a new game, the cards should be shuffled
   }
 
-  moveToMatched(card) {
+  moveToMatched() {
     var selectedArr = this.selectedCards;
     if (selectedArr[0].matchInfo === selectedArr[1].matchInfo) {
       selectedArr.forEach(card => {
         card.matched = true
+        showCurrentMatchesImg(card);
       })
       this.matchedCards.push(selectedArr);
       removeMatchedDom();
