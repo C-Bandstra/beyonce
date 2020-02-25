@@ -23,7 +23,6 @@ function clickHandler(event) {
     invokeTimer();
   }
   if (deck.selectedCards.length === 2) {
-    debugger
     deck.moveToMatched();
   }
 }
@@ -42,20 +41,22 @@ function invokeDeck() {
 
 function displayCards(event) {
   var cardCounter = 0;
-  for (var i = 0; i < deck.cards.length; i++) {
+  for (var i = 0; i < deck.shuffledCards.length; i++) {
     cardCounter++;
     cardContainer.insertAdjacentHTML('beforeend', `
-    <div id="${cardCounter}" class="card card-${cardCounter}">
+    <div id="${deck.shuffledCards[i].id}" class="card card-${deck.shuffledCards[i].id}">
       <p class="">B</p>
     </div>`);
   }
 }
+//card 1 div should always be in the same spot
+//assign card image differently based on index order
 
 function displayImg(event) {
-  for (var i = 0; i < deck.cards.length; i++) {
-    var cardId = deck.cards[i].id;
+  for (var i = 0; i < deck.shuffledCards.length; i++) {
+    var cardId = deck.shuffledCards[i].id;
     var imgId = cardId > 5 ? cardId - 5 : cardId;
-    var isSelected = deck.cards[i].selected;
+    var isSelected = deck.shuffledCards[i].selected;
     var clickedId = event.target.id;
     if (isSelected && clickedId == cardId) {
       event.target.classList.add(`img-${imgId}`, 'img');
@@ -97,7 +98,6 @@ function gameOver(minutes, seconds) {
 }
 
 function displayTopTimes() {
-  debugger
   var firstTime = timer.topTimes[0];
   var sec1 = Math.round(firstTime % 60);
   var min1 = Math.floor(firstTime / 60);
