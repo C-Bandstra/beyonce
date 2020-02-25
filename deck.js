@@ -3,18 +3,27 @@ class Deck {
     this.cards = [];
     this.matchedCards = [];
     this.selectedCards = [];
+    this.shuffledCards = [];
   }
 
 
   shuffle() {
-    //when the user starts a new game, the cards should be shuffled
+    var min = 0
+    var max = 9
+    for (let i = 0; i < 10; i++) {
+      var randomNum = Math.floor(Math.random() * (max - min) + min)
+      var card = this.cards.splice(randomNum, 1)
+      this.shuffledCards.push.apply(this.shuffledCards, card)
+      max--
+    }
+    console.log(this.shuffledCards)
   }
 
   moveToMatched() {
     var selectedArr = this.selectedCards;
     if (selectedArr[0].matchInfo === selectedArr[1].matchInfo) {
       selectedArr.forEach(card => {
-        card.matched = true
+        card.match();
         showCurrentMatchesImg(card);
       })
       this.matchedCards.push(selectedArr);
@@ -35,12 +44,13 @@ class Deck {
       this.cards.push(card1);
       this.cards.push(card2);
     }
+    this.shuffle()
   }
 
   checkSelected(event) {
     var selectedArr = this.selectedCards;
-    this.cards.forEach((card, i) => {
-      var cardIndex = this.cards[i];
+    this.shuffledCards.forEach((card, i) => {
+      var cardIndex = this.shuffledCards[i];
       if (cardIndex.id == event.target.id && selectedArr.length <= 2) {
         this.populateSelected(selectedArr, cardIndex);
       }
