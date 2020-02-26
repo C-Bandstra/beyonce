@@ -1,3 +1,4 @@
+/* --- General setup --- */
 :root {
   --light: #fff;
   --medium: #d3d3d3;
@@ -16,16 +17,13 @@ div * {
   pointer-events: none;
 }
 
-div.card {
-  cursor: pointer;
-}
-
 html, body {
   height: 100%;
   margin: 0;
   width: 100%;
 }
 
+/* --- Main game page --- */
 .header-container {
   align-items: center;
   display: flex;
@@ -84,6 +82,7 @@ main {
   width: 100%;
 }
 
+/* --- Cards --- */
 .card-container {
   background-color: var(--medium);
   background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(199, 199, 199, 0.9)), url(assets/bey-background-option.jpg);
@@ -115,6 +114,10 @@ main {
   color: var(--light);
   border: 3px solid var(--light);
   transition: background-color .5s, color .5s, border .5s;
+}
+
+div.card {
+  cursor: pointer;
 }
 
 .card-1 {
@@ -182,6 +185,7 @@ main {
   background-size: cover;
 }
 
+/* --- Main win page --- */
 .win-page-container {
   align-items: center;
   background-color: var(--medium);
