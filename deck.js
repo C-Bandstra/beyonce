@@ -8,7 +8,7 @@ class Deck {
 
   shuffle() {
     var min = 0;
-    var max = 9;
+    var max = 10;
     for (let i = 0; i < 10; i++) {
       var randomNum = Math.floor(Math.random() * (max - min) + min);
       var card = this.cards.splice(randomNum, 1);
@@ -26,7 +26,9 @@ class Deck {
       });
       this.matchedCards.push(selectedArr);
       removeMatchedDom();
-    }
+    } else {
+      setTimeout(flipTimeout, 1500)
+    } 
   }
 
   populateDeck() {
@@ -48,6 +50,7 @@ class Deck {
     this.shuffledCards.forEach((card, i) => {
       var cardIndex = this.shuffledCards[i];
       if (cardIndex.id == event.target.id && selectedArr.length <= 2) {
+        cardIndex.selected = false;
         this.populateSelected(selectedArr, cardIndex);
       }
     })
