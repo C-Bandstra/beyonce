@@ -6,17 +6,15 @@ class Deck {
     this.shuffledCards = [];
   }
 
-
   shuffle() {
-    var min = 0
-    var max = 9
+    var min = 0;
+    var max = 9;
     for (let i = 0; i < 10; i++) {
-      var randomNum = Math.floor(Math.random() * (max - min) + min)
-      var card = this.cards.splice(randomNum, 1)
-      this.shuffledCards.push.apply(this.shuffledCards, card)
-      max--
+      var randomNum = Math.floor(Math.random() * (max - min) + min);
+      var card = this.cards.splice(randomNum, 1);
+      this.shuffledCards.push.apply(this.shuffledCards, card);
+      max--;
     }
-    console.log(this.shuffledCards)
   }
 
   moveToMatched() {
@@ -25,11 +23,9 @@ class Deck {
       selectedArr.forEach(card => {
         card.match();
         showCurrentMatchesImg(card);
-      })
+      });
       this.matchedCards.push(selectedArr);
       removeMatchedDom();
-    } else {
-      // this.removeClassFromFalseMatch();
     }
   }
 
@@ -44,7 +40,7 @@ class Deck {
       this.cards.push(card1);
       this.cards.push(card2);
     }
-    this.shuffle()
+    this.shuffle();
   }
 
   checkSelected(event) {
@@ -75,12 +71,4 @@ class Deck {
       }
     })
   }
-
-  // removeClassFromFalseMatch() {
-  //   debugger
-  //   var falseMatch = cardContainer.getElementsByClassName('flipped');
-  //   for (var i = 0; i < 2; i++) {
-  //     falseMatch[0].classList.remove('flipped');
-  //   }
-  // }
 }

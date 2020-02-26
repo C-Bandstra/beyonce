@@ -208,7 +208,8 @@ main {
   width: 45%;
 }
 
-.play-again-button, .new-game-button {
+.play-again-button,
+.new-game-button {
   background-color: #262527;
   border: 0;
   border-radius: 5px;
@@ -217,9 +218,11 @@ main {
   font-size: 200%;
   font-weight: 300;
   padding: 15px 60px;
+  cursor: pointer;
 }
 
-.play-again-button:hover, .new-game-button:hover {
+.play-again-button:hover,
+.new-game-button:hover {
   background-color: #616161;
   transition: background-color 1s;
 }

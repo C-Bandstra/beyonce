@@ -1,4 +1,5 @@
 // Variables
+var body = document.querySelector('body');
 var cardContainer = document.querySelector('.card-container');
 var gamePage = document.querySelector('.game-page');
 var winPage = document.querySelector('.win-page-container');
@@ -13,7 +14,7 @@ var timer = new Timer();
 window.onload = invokeDeck();
 
 // Event Listeners
-cardContainer.addEventListener('click', clickHandler);
+body.addEventListener('click', clickHandler);
 
 // Functions
 function clickHandler(event) {
@@ -24,6 +25,10 @@ function clickHandler(event) {
   }
   if (deck.selectedCards.length === 2) {
     deck.moveToMatched();
+  }
+  debugger
+  if (event.target.classList.contains('buttons-container')) {
+    window.location.reload();
   }
 }
 
@@ -41,7 +46,7 @@ function invokeDeck() {
 
 function displayCards(event) {
   for (var i = 0; i < deck.shuffledCards.length; i++) {
-    var cardId = deck.shuffledCards[i].id
+    var cardId = deck.shuffledCards[i].id;
     var imgId = cardId > 5 ? cardId - 5 : cardId;
     cardContainer.insertAdjacentHTML('beforeend', `
     <div id="${cardId}" class="front card card-${cardId}">
@@ -51,38 +56,18 @@ function displayCards(event) {
     </div>`);
   }
 }
-//card 1 div should always be in the same spot
-//assign card image differently based on index order
-
-// function displayImg(event) {
-//   for (var i = 0; i < deck.shuffledCards.length; i++) {
-//     var cardId = deck.shuffledCards[i].id;
-//     var imgId = cardId > 5 ? cardId - 5 : cardId;
-//     var isSelected = deck.shuffledCards[i].selected;
-//     var clickedId = event.target.id;
-//     if (isSelected && clickedId == cardId) {
-//       event.target.classList.add(`img-${imgId}`, 'img');
-//       event.target.firstElementChild.classList.add('hide');
-//       break;
-//     } else {
-//       event.target.classList.remove(`img-${imgId}`);
-//       event.target.firstElementChild.classList.remove('hide');
-//     }
-//   }
-// }
 
 function displayImg(event) {
   if(event.target.classList.contains('front')) {
-    event.target.classList.add('hide', 'flipped')
-    event.target.nextElementSibling.classList.remove('hide')
+    event.target.classList.add('hide', 'flipped');
+    event.target.nextElementSibling.classList.remove('hide');
   } else {
-    event.target.classList.add('hide')
-    event.target.previousElementSibling.classList.remove('hide', 'flipped')
+    event.target.classList.add('hide');
+    event.target.previousElementSibling.classList.remove('hide', 'flipped');
   }
 }
 
 function removeMatchedDom() {
-  debugger
   var falseMatch = cardContainer.getElementsByClassName('flipped');
   falseMatch[0].nextElementSibling.style.visibility = 'hidden';
   falseMatch[1].nextElementSibling.style.visibility = 'hidden';
@@ -92,10 +77,10 @@ function removeMatchedDom() {
     match.forEach(card => {
       card.selected = false;
       deck.selectedCards = [];
-    })
-  })
+    });
+  });
   increaseMatchAmount();
-  showCurrentMatchesImg()
+  showCurrentMatchesImg();
 }
 
 function increaseMatchAmount() {
@@ -134,7 +119,7 @@ function showCurrentMatchesImg(card) {
   var matchBoxes = gamePage.getElementsByClassName('current-match');
   for (var i = 0; i < matchBoxes.length; i++) {
     if (card.matchInfo === matchBoxes[i].dataset.id) {
-      matchBoxes[i].classList.add(`back-${card.imgId}`)
+      matchBoxes[i].classList.add(`back-${card.imgId}`);
     }
   }
 }
