@@ -29,7 +29,7 @@ class Deck {
       this.matchedCards.push(selectedArr);
       removeMatchedDom();
     } else {
-      this.removeClassFromFalseMatch();
+      // this.removeClassFromFalseMatch();
     }
   }
 
@@ -39,8 +39,8 @@ class Deck {
     for (var i = 1; i < 6; i++) {
       firstCardsId++;
       lastCardsId++;
-      var card1 = new Card(`card-${i}`, firstCardsId);
-      var card2 = new Card(`card-${i}`, lastCardsId);
+      var card1 = new Card(`card-${i}`, firstCardsId, i);
+      var card2 = new Card(`card-${i}`, lastCardsId, i);
       this.cards.push(card1);
       this.cards.push(card2);
     }
@@ -76,10 +76,11 @@ class Deck {
     })
   }
 
-  removeClassFromFalseMatch() {
-    var falseMatch = cardContainer.getElementsByClassName('img');
-    for (var i = 0; i < 2; i++) {
-      falseMatch[0].classList.remove('img');
-    }
-  }
+  // removeClassFromFalseMatch() {
+  //   debugger
+  //   var falseMatch = cardContainer.getElementsByClassName('flipped');
+  //   for (var i = 0; i < 2; i++) {
+  //     falseMatch[0].classList.remove('flipped');
+  //   }
+  // }
 }

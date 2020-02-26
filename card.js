@@ -1,10 +1,10 @@
 class Card {
-  constructor(matchInfo, id) {
+  constructor(matchInfo, id, imgId) {
     this.matchInfo = matchInfo;
     this.matched = false;
     this.selected = false;
     this.id = id;
-    this.img = null;
+    this.imgId = imgId;
   }
 
   match() {

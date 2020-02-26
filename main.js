@@ -40,46 +40,62 @@ function invokeDeck() {
 }
 
 function displayCards(event) {
-  var cardCounter = 0;
   for (var i = 0; i < deck.shuffledCards.length; i++) {
-    cardCounter++;
+    var cardId = deck.shuffledCards[i].id
+    var imgId = cardId > 5 ? cardId - 5 : cardId;
     cardContainer.insertAdjacentHTML('beforeend', `
-    <div id="${deck.shuffledCards[i].id}" class="card card-${deck.shuffledCards[i].id}">
+    <div id="${cardId}" class="front card card-${cardId}">
       <p class="">B</p>
+    </div>
+    <div id="${cardId}" class="back-${imgId} card card-${cardId} hide">
     </div>`);
   }
 }
 //card 1 div should always be in the same spot
 //assign card image differently based on index order
 
+// function displayImg(event) {
+//   for (var i = 0; i < deck.shuffledCards.length; i++) {
+//     var cardId = deck.shuffledCards[i].id;
+//     var imgId = cardId > 5 ? cardId - 5 : cardId;
+//     var isSelected = deck.shuffledCards[i].selected;
+//     var clickedId = event.target.id;
+//     if (isSelected && clickedId == cardId) {
+//       event.target.classList.add(`img-${imgId}`, 'img');
+//       event.target.firstElementChild.classList.add('hide');
+//       break;
+//     } else {
+//       event.target.classList.remove(`img-${imgId}`);
+//       event.target.firstElementChild.classList.remove('hide');
+//     }
+//   }
+// }
+
 function displayImg(event) {
-  for (var i = 0; i < deck.shuffledCards.length; i++) {
-    var cardId = deck.shuffledCards[i].id;
-    var imgId = cardId > 5 ? cardId - 5 : cardId;
-    var isSelected = deck.shuffledCards[i].selected;
-    var clickedId = event.target.id;
-    if (isSelected && clickedId == cardId) {
-      event.target.classList.add(`img-${imgId}`, 'img');
-      event.target.firstElementChild.classList.add('hide');
-      break;
-    } else {
-      event.target.classList.remove(`img-${imgId}`);
-      event.target.firstElementChild.classList.remove('hide');
-    }
+  if(event.target.classList.contains('front')) {
+    event.target.classList.add('hide', 'flipped')
+    event.target.nextElementSibling.classList.remove('hide')
+  } else {
+    event.target.classList.add('hide')
+    event.target.previousElementSibling.classList.remove('hide', 'flipped')
   }
 }
 
 function removeMatchedDom() {
-  increaseMatchAmount();
-  var falseMatch = cardContainer.getElementsByClassName('img');
-  falseMatch[0].remove();
-  falseMatch[0].remove();
+  debugger
+  var falseMatch = cardContainer.getElementsByClassName('flipped');
+  falseMatch[0].nextElementSibling.style.visibility = 'hidden';
+  falseMatch[1].nextElementSibling.style.visibility = 'hidden';
+  falseMatch[0].classList.remove('flipped');
+  falseMatch[0].classList.remove('flipped');
   deck.matchedCards.forEach((match) => {
     match.forEach(card => {
       card.selected = false;
       deck.selectedCards = [];
     })
   })
+  increaseMatchAmount();
+  showCurrentMatchesImg()
 }
 
 function increaseMatchAmount() {
@@ -114,12 +130,11 @@ function displayTopTimes() {
 
 
 function showCurrentMatchesImg(card) {
-  var imgCtr = 1;
+  debugger
   var matchBoxes = gamePage.getElementsByClassName('current-match');
   for (var i = 0; i < matchBoxes.length; i++) {
     if (card.matchInfo === matchBoxes[i].dataset.id) {
-      matchBoxes[i].classList.add(`img-${imgCtr}`)
+      matchBoxes[i].classList.add(`back-${card.imgId}`)
     }
-    imgCtr++;
   }
 }
