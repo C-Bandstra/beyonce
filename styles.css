@@ -120,44 +120,23 @@ div.card {
   cursor: pointer;
 }
 
-.card-1 {
-  transform: translateY(100px);
-}
-
-.card-2 {
-  transform: rotate(-15deg);
-}
-
+.card-1,
+.card-2,
 .card-3 {
-  transform: rotate(-4deg);
+  transform: rotate(12deg)
 }
 
-.card-4 {
-  transform: rotate(10deg);
-}
-
-.card-5 {
-  transform: translateY(150px) rotate(-10deg);
-}
-
+.card-4,
+.card-5,
 .card-6 {
-  transform: translateX(-20px) rotate(10deg);
+  transform: rotate(-8deg);
 }
 
-.card-7 {
-  transform: translateX(-20px) rotate(-10deg);
-}
-
-.card-8 {
-  transform: translateX(50px);
-}
-
-.card-9 {
-  transform: translate(120px, -20px) rotate(8deg);
-}
-
+.card-7,
+.card-8,
+.card-9,
 .card-10 {
-  transform: translate(150px, -40px) rotate(-20deg);
+  transform: rotate(10deg)
 }
 
 .back-1 {
@@ -233,9 +212,11 @@ div.card {
   cursor: pointer;
 }
 
-.new-game-button:hover {
+.new-game-button:hover,
+.new-game-button:focus {
   background-color: var(--medium-dark);
   transition: background-color 2s;
+  outline: none;
 }
 
 .hide {
