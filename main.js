@@ -20,15 +20,15 @@ body.addEventListener('click', clickHandler);
 function clickHandler(event) {
   if (event.target.closest('.card')) {
     deck.checkSelected(event);
-    displayImg(event);
     invokeTimer();
   }
   if (deck.selectedCards.length === 2) {
     deck.moveToMatched();
   }
-  debugger
   if (event.target.classList.contains('buttons-container')) {
     window.location.reload();
+  }
+  if(deck.selectedCards.length > 2) {
   }
 }
 
@@ -44,7 +44,7 @@ function invokeDeck() {
   displayTopTimes();
 }
 
-function displayCards(event) {
+function displayCards() {
   for (var i = 0; i < deck.shuffledCards.length; i++) {
     var cardId = deck.shuffledCards[i].id;
     var imgId = cardId > 5 ? cardId - 5 : cardId;
@@ -58,6 +58,7 @@ function displayCards(event) {
 }
 
 function displayImg(event) {
+  debugger
   if(event.target.classList.contains('front')) {
     event.target.classList.add('hide', 'flipped');
     event.target.nextElementSibling.classList.remove('hide');
@@ -99,18 +100,15 @@ function gameOver(minutes, seconds) {
 }
 
 function displayTopTimes() {
-  var firstTime = timer.topTimes[0];
-  var sec1 = Math.round(firstTime % 60);
-  var min1 = Math.floor(firstTime / 60);
-  var secondTime = timer.topTimes[1];
-  var sec2 = Math.round(secondTime % 60);
-  var min2 = Math.floor(secondTime / 60);
-  var thirdTime = timer.topTimes[2];
-  var sec3 = Math.round(thirdTime % 60);
-  var min3 = Math.floor(thirdTime / 60);
-  firstScore.innerText = `${min1 || '0'} min ${sec1 || '0'} sec`;
-  secondScore.innerText = `${min2 || '0'} min ${sec2 || '0'} sec`;
-  thirdScore.innerText = `${min3 || '0'} min ${sec3 || '0'} sec`;
+  var times = [];
+  timer.topTimes.forEach(time => {
+    var min = Math.floor(time / 60);
+    var sec = Math.round(time % 60);
+    times.push(min, sec)
+  })
+  firstScore.innerText = `${times[0] || '0'} min ${times[1] || '0'} sec`;
+  secondScore.innerText = `${times[2] || '0'} min ${times[3] || '0'} sec`;
+  thirdScore.innerText = `${times[4] || '0'} min ${times[5] || '0'} sec`;
 }
 
 
