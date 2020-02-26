@@ -57,6 +57,7 @@ class Deck {
     if (!cardIndex.selected && selectedArr.length < 2) {
       selectedArr.push(cardIndex);
       cardIndex.selected = true;
+      displayImg(event)
     } else {
       this.removeSelected(selectedArr);
     }
@@ -68,6 +69,7 @@ class Deck {
         var index = selectedArr.indexOf(card);
         card.selected = false;
         selectedArr.splice(index, 1);
+        displayImg(event)
       }
     })
   }
