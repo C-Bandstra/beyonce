@@ -15,7 +15,9 @@ class Timer {
     this.seconds = Math.round(totalSeconds % 60);
     this.topTimes.push(totalSeconds);
     console.log(this.topTimes);
-    this.topTimes.sort(function (a, b) {return a - b;});
+    this.topTimes.sort(function (a, b) {
+      return a - b;
+    });
     console.log(this.topTimes);
     gameOver(this.minutes, this.seconds);
     this.saveToLocalStorage(this.topTimes);

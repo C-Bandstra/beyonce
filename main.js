@@ -1,4 +1,3 @@
-// Variables
 var body = document.querySelector('body');
 var cardContainer = document.querySelector('.card-container');
 var gamePage = document.querySelector('.game-page');
@@ -12,11 +11,8 @@ var deck = new Deck();
 var timer = new Timer();
 
 window.onload = invokeDeck();
-
-// Event Listeners
 body.addEventListener('click', clickHandler);
 
-// Functions
 function clickHandler(event) {
   if (event.target.closest('.card')) {
     deck.checkSelected(event);
@@ -25,7 +21,7 @@ function clickHandler(event) {
   if (deck.selectedCards.length === 2) {
     deck.moveToMatched();
   }
-  if (event.target.classList.contains('buttons-container')) {
+  if (event.target.classList.contains('new-game-button')) {
     window.location.reload();
   }
   if(deck.selectedCards.length > 2) {
@@ -58,7 +54,6 @@ function displayCards() {
 }
 
 function displayImg(event) {
-  debugger
   if(event.target.classList.contains('front')) {
     event.target.classList.add('hide', 'flipped');
     event.target.nextElementSibling.classList.remove('hide');
@@ -85,7 +80,7 @@ function removeMatchedDom() {
 }
 
 function increaseMatchAmount() {
-  var amount = Number(matchAmount.innerText)
+  var amount = Number(matchAmount.innerText);
   amount++;
   matchAmount.innerText = `${amount}`;
   if (matchAmount.innerText == 5) {
@@ -111,9 +106,7 @@ function displayTopTimes() {
   thirdScore.innerText = `${times[4] || '0'} min ${times[5] || '0'} sec`;
 }
 
-
 function showCurrentMatchesImg(card) {
-  debugger
   var matchBoxes = gamePage.getElementsByClassName('current-match');
   for (var i = 0; i < matchBoxes.length; i++) {
     if (card.matchInfo === matchBoxes[i].dataset.id) {

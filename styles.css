@@ -1,3 +1,11 @@
+/* --- General setup --- */
+:root {
+  --light: #fff;
+  --medium: #d3d3d3;
+  --medium-dark: #8c8c8c;
+  --dark: #262527;
+}
+
 * {
   box-sizing: border-box;
   font-family: Lato, sans-serif;
@@ -9,16 +17,13 @@ div * {
   pointer-events: none;
 }
 
-div.card {
-  cursor: pointer;
-}
-
 html, body {
   height: 100%;
   margin: 0;
   width: 100%;
 }
 
+/* --- Main game page --- */
 .header-container {
   align-items: center;
   display: flex;
@@ -34,8 +39,8 @@ main {
 }
 
 .nav-container {
-  background-color: #262527;
-  color: #fff;
+  background-color: var(--dark);
+  color: var(--light);
   height: 100%;
   text-align: center;
   width: 20%;
@@ -61,7 +66,7 @@ main {
 }
 
 .current-match {
-  background-color: #A9A9A9;
+  background-color: var(--medium);
   margin: 3.5%;
   width: 23%;
 }
@@ -77,8 +82,9 @@ main {
   width: 100%;
 }
 
+/* --- Cards --- */
 .card-container {
-  background-color: #d3d3d3;
+  background-color: var(--medium);
   background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(199, 199, 199, 0.9)), url(assets/bey-background-option.jpg);
   display: flex;
   flex-wrap: wrap;
@@ -90,8 +96,8 @@ main {
 
 .card {
   align-items: center;
-  background-color: #fff;
-  border: 3px solid #262527;
+  background-color: var(--light);
+  border: 3px solid var(--dark);
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   cursor: grabbing;
   display: flex;
@@ -104,10 +110,14 @@ main {
 }
 
 .card:hover {
-  background-color: #262527;
-  color: #fff;
-  border: 3px solid #fff;
+  background-color: var(--dark);
+  color: var(--light);
+  border: 3px solid var(--light);
   transition: background-color .5s, color .5s, border .5s;
+}
+
+div.card {
+  cursor: pointer;
 }
 
 .card-1 {
@@ -175,9 +185,10 @@ main {
   background-size: cover;
 }
 
+/* --- Main win page --- */
 .win-page-container {
   align-items: center;
-  background-color: #d3d3d3;
+  background-color: var(--medium);
   background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(199, 199, 199, 0.9)), url(assets/bey1.jpg);
   background-size: cover;
   flex-direction: column;
@@ -203,28 +214,28 @@ main {
 
 .buttons-container {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   margin-top: 4%;
   width: 45%;
 }
 
-.play-again-button,
 .new-game-button {
-  background-color: #262527;
+  pointer-events: all;
+  background-color: var(--dark);
   border: 0;
   border-radius: 5px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-  color: #fff;
+  color: var(--light);
   font-size: 200%;
   font-weight: 300;
   padding: 15px 60px;
   cursor: pointer;
 }
 
-.play-again-button:hover,
 .new-game-button:hover {
-  background-color: #616161;
-  transition: background-color 1s;
+  background-color: var(--medium-dark);
+  transition: background-color 2s;
 }
 
 .hide {
