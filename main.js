@@ -14,14 +14,15 @@ window.onload = invokeDeck();
 body.addEventListener('click', clickHandler);
 
 function clickHandler(event) {
-  debugger
   if (event.target.closest('.card')) {
     deck.checkSelected(event);
     invokeTimer();
   }
+
   if (deck.selectedCards.length === 2) {
     deck.moveToMatched();
   }
+
   if (event.target.classList.contains('new-game-button')) {
     window.location.reload();
   }
@@ -53,7 +54,6 @@ function displayCards() {
 }
 
 function displayImg(event) {
-  console.log(deck.selectedCards)
   if(event.target.classList.contains('front')) {
     event.target.classList.add('hide', 'flipped');
     event.target.nextElementSibling.classList.remove('hide');
@@ -62,7 +62,6 @@ function displayImg(event) {
 }
 
 function flipTimeout(event) {
-  debugger
   if(deck.selectedCards.length === 2) {
     var flippedCards = cardContainer.getElementsByClassName('back')
     flippedCards[0].classList.add('hide');
@@ -71,7 +70,6 @@ function flipTimeout(event) {
     flippedCards[1].previousElementSibling.classList.remove('hide', 'flipped');
     flippedCards[0].classList.remove('back');
     flippedCards[0].classList.remove('back');
-    console.log(flippedCards)
     deck.selectedCards = [];
   }
 }
@@ -122,7 +120,6 @@ function displayTopTimes() {
 }
 
 function showCurrentMatchesImg(card) {
-  debugger
   var matchBoxes = gamePage.getElementsByClassName('current-match');
   for (var i = 0; i < matchBoxes.length; i++) {
     if (card.matchInfo === matchBoxes[i].dataset.id) {
