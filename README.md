@@ -1,6 +1,7 @@
 # beyonce
 Progression
-Iteration 0 - Initial Layout & UI
+
+## Iteration 0 - Initial Layout & UI
 This should be completed by the end of the first day.
 
 Build out views for both the game page and win page (this should all be in a single HTML file)
@@ -33,11 +34,14 @@ All card object instances should be held in the Deck class
 The Deck should have cards, matchedCards, and selectedCards as properties. The Deck should have the following methods: shuffle, checkSelectedCards, and moveToMatched. If you find a need for additional methods, write/use them!
 Create two files: card.js and deck.js
 Build out both classes
+
 Consider:
 What properties in the class should be dynamic, and which ones should be default?
 What will each method do?
 If you’re not sure, look forward to future iterations to see when you might need it - it’s okay to wait to define the method until you know how you need to use it!
-Iteration 2 - Rendering the Data Model
+
+## Iteration 2 - Rendering the Data Model
+
 Iterate over the Deck’s array of Card object instances to display the cards on the DOM (for now, don’t worry about scrambling up the cards)
 User should see ten cards scattered across the screen, face down
 Leave the left-hand sidebar static for now; we will add that functionality in the next iteration
@@ -46,7 +50,8 @@ DOM: When a user clicks a card, it should flip over, revealing the image (don’
 Data model: When that card is clicked a second time, the copy of that card object instance should be removed from the deck’s selectedCards array
 DOM: When that card is clicked a second time, it should flip to be face down again, showing the back of the card (the “B”)
 Every card should be clickable in this way
-Iteration 3 - Making the game playable
+
+## Iteration 3 - Making the game playable
 Once again, we’ll leave the sidebar static (we’ll begin updating it in the next iteration)
 User should only be able to flip over two cards at a time.
 Data model: If the two flipped cards match, the data model should be updated by using the appropriate Deck methods
@@ -55,7 +60,8 @@ If the cards don’t match, the user should be able to re-click them to turn the
 User should be able to continue playing until all matches have been found
 Once all matches are found, the user should see the page with a message congratulating them and telling them how long it took to find all the matches
 (The comp shows seconds, but we think minutes and seconds are more friendly to the user!)
-Iteration 4 - Refining gameplay
+
+## Iteration 4 - Refining gameplay
 Now that you’re getting the hang of using the data model to render things to the DOM, from now on, we’re only going to give you the DOM functionality, and it’s up to you to figure out how to update and use the data model to accomplish it!
 
 On the left hand side of the page, the player should see the number of “Matches This Round” updating as matches are found
@@ -64,10 +70,12 @@ Every time a match is found and the cards are removed from the DOM, the photo of
 Each time a user plays, the ten cards should be arranged differently - hint: the Deck class should handle this logic
 Instead of having to manually re-click a card to turn it back face-down, the program should automatically flip both cards over, after the user has had ___ seconds from the time both cards are revealed to view them. This is a great opportunity to do some user testing and see what the right amount of time is!
 Anytime a card flips over, there should be a smooth transition.
-Iteration 5 - Local Storage
+
+## Iteration 5 - Local Storage
 The users times should persist in Local Storage
 This will allow the user’s best/shortest/fastest times to be displayed, even if they refresh the browser.
-Iteration 6 - Two Players
+
+### Iteration 6 - Two Players
 Now, we are going to update our game to allow two players to compete against one another. A complete round will consist of two games:
 
 Player 1 will play a complete game and find all the matches.
