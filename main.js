@@ -14,6 +14,7 @@ window.onload = invokeDeck();
 body.addEventListener('click', clickHandler);
 
 function clickHandler(event) {
+  debugger
   if (event.target.closest('.card')) {
     deck.checkSelected(event);
     invokeTimer();
@@ -23,8 +24,6 @@ function clickHandler(event) {
   }
   if (event.target.classList.contains('new-game-button')) {
     window.location.reload();
-  }
-  if(deck.selectedCards.length > 2) {
   }
 }
 
@@ -54,21 +53,38 @@ function displayCards() {
 }
 
 function displayImg(event) {
+  console.log(deck.selectedCards)
   if(event.target.classList.contains('front')) {
     event.target.classList.add('hide', 'flipped');
     event.target.nextElementSibling.classList.remove('hide');
-  } else {
-    event.target.classList.add('hide');
-    event.target.previousElementSibling.classList.remove('hide', 'flipped');
+    event.target.nextElementSibling.classList.add('back');
+  }
+}
+
+function flipTimeout(event) {
+  debugger
+  if(deck.selectedCards.length === 2) {
+    var flippedCards = cardContainer.getElementsByClassName('back')
+    flippedCards[0].classList.add('hide');
+    flippedCards[1].classList.add('hide');
+    flippedCards[0].previousElementSibling.classList.remove('hide', 'flipped');
+    flippedCards[1].previousElementSibling.classList.remove('hide', 'flipped');
+    flippedCards[0].classList.remove('back');
+    flippedCards[0].classList.remove('back');
+    console.log(flippedCards)
+    deck.selectedCards = [];
   }
 }
 
 function removeMatchedDom() {
-  var falseMatch = cardContainer.getElementsByClassName('flipped');
-  falseMatch[0].nextElementSibling.style.visibility = 'hidden';
-  falseMatch[1].nextElementSibling.style.visibility = 'hidden';
-  falseMatch[0].classList.remove('flipped');
-  falseMatch[0].classList.remove('flipped');
+  var trueMatch = cardContainer.getElementsByClassName('flipped');
+  var flippedCards = cardContainer.getElementsByClassName('back')
+  trueMatch[0].nextElementSibling.style.visibility = 'hidden';
+  trueMatch[1].nextElementSibling.style.visibility = 'hidden';
+  trueMatch[0].classList.remove('flipped');
+  trueMatch[0].classList.remove('flipped');
+  flippedCards[0].classList.remove('back');
+  flippedCards[0].classList.remove('back');
   deck.matchedCards.forEach((match) => {
     match.forEach(card => {
       card.selected = false;
@@ -76,7 +92,6 @@ function removeMatchedDom() {
     });
   });
   increaseMatchAmount();
-  showCurrentMatchesImg();
 }
 
 function increaseMatchAmount() {
@@ -107,6 +122,7 @@ function displayTopTimes() {
 }
 
 function showCurrentMatchesImg(card) {
+  debugger
   var matchBoxes = gamePage.getElementsByClassName('current-match');
   for (var i = 0; i < matchBoxes.length; i++) {
     if (card.matchInfo === matchBoxes[i].dataset.id) {
